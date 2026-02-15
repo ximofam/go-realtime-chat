@@ -169,7 +169,7 @@
         <div class="room-info">
             Room ID:
             <b id="roomIdText"></b>
-            <button class="copy-btn" onclick="copyRoomID()">📋</button>
+            <button class="copy-btn" onclick="copyRoomID()">Click to copy</button>
         </div>
 
         <button class="leave-btn" onclick="leaveRoom()">Leave</button>
@@ -211,9 +211,13 @@
             window.location.href = "/";
         }
 
+        const protocol =
+            location.protocol === "https:" ? "wss" : "ws";
+
         const ws = new WebSocket(
-            `ws://${location.host}/rooms/${roomId}?username=${username}`
+            `${protocol}://${location.host}/rooms/${roomId}?username=${username}`
         );
+
 
         const connectTimeout = setTimeout(() => {
             if (!connected) {

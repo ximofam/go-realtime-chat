@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/ximofam/go-realtime-chat/chat"
 )
@@ -16,6 +17,12 @@ func main() {
 	http.HandleFunc("GET /rooms/{id}/users", chatServer.GetUsersOfRoom)
 	http.HandleFunc("GET /rooms/{id}/exists", chatServer.IsExistRoom)
 
-	http.ListenAndServe(":8080", nil)
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
+	http.ListenAndServe(":"+port, nil)
 
 }
