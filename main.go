@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"os"
 
@@ -23,6 +24,8 @@ func main() {
 		port = "8080"
 	}
 
-	http.ListenAndServe(":"+port, nil)
-
+	log.Printf("Listening on port: %s", port)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Printf("Failed to run chat: %v", err)
+	}
 }
