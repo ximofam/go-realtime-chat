@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Realtime Chat</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Realtime Meeting</h2>
+
+        <!-- STEP 1 -->
+        <div id="menu">
+            <button class="create" onclick="showCreate()">
+                ➕ Create Room
+            </button>
+
+            <button class="join" onclick="showJoin()">
+                🔗 Join Room
+            </button>
+        </div>
+
+        <!-- CREATE FORM -->
+        <div id="createBox" class="hidden">
+            <h3>Create Room</h3>
+            <input id="createUsername" placeholder="Your username">
+            <button class="create" onclick="createRoom()">Start Meeting</button>
+            <button onclick="goBack()">⬅ Back</button>
+        </div>
+
+        <!-- JOIN FORM -->
+        <div id="joinBox" class="hidden">
+            <h3>Join Room</h3>
+            <input id="joinUsername" placeholder="Your username">
+            <input id="roomInput" placeholder="Room id">
+            <button class="join" onclick="joinRoom()">Join</button>
+            <button onclick="goBack()">⬅ Back</button>
+        </div>
+
+
+    </div>
+
+    <script src="/static/js/index.js"></script>
+</body>
+
+</html>

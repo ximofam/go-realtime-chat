@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting Room</title>
+    <link rel="stylesheet" href="/static/css/room.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="room-info">
+            Room ID:
+            <b id="roomIdText"></b>
+            <button class="copy-btn" onclick="copyRoomID()">Click to copy</button>
+        </div>
+
+        <button class="leave-btn" onclick="leaveRoom()">Leave</button>
+    </div>
+
+    <div class="main">
+        <div class="chat-area">
+            <div id="chat"></div>
+
+            <div class="footer">
+                <input id="msg" placeholder="Type message...">
+                <button onclick="send()">Send</button>
+            </div>
+        </div>
+
+        <div class="users-panel">
+            <h3>Users in room</h3>
+            <div id="users"></div>
+        </div>
+    </div>
+
+    <script src="/static/js/room.js"></script>
+</body>
+
+</html>
