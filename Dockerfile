@@ -25,9 +25,8 @@ WORKDIR /app
 # copy binary từ stage build
 COPY --from=builder /app/server .
 
-# copy static files (html/css/js nếu có)
-COPY static ./static
-COPY *.html ./
+# copy web assets
+COPY --from=builder /app/web ./web
 
 EXPOSE 8080
 

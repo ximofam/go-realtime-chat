@@ -11,7 +11,12 @@ import (
 func main() {
 	chatServer := chat.NewServer()
 
-	http.Handle("/", http.FileServer(http.Dir("./static")))
+	// ===== serve static files =====
+	fs := http.FileServer(http.Dir("./web/static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	// ===== serve html =====
+	http.Handle("/", http.FileServer(http.Dir("./web/templates")))
 
 	http.HandleFunc("POST /rooms", chatServer.CreateRoom)
 	http.HandleFunc("GET /rooms/{id}", chatServer.JoinRoom)
