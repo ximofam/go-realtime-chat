@@ -2,48 +2,60 @@
 <html>
 
 <head>
-    <title>Realtime Chat</title>
-    <link rel="stylesheet" href="/static/css/index.css">
+	<title>Realtime Chat</title>
+	<link rel="stylesheet" href="/static/css/index.css">
 </head>
 
 <body>
 
-    <div class="container">
+	<header class="top-header">
+		<a href="https://github.com/ximofam/go-realtime-chat" target="_blank" rel="noopener noreferrer"
+			title="View source on GitHub">
+			<svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true"
+				class="github-icon">
+				<path fill="currentColor"
+					d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
+				</path>
+			</svg>
+		</a>
+	</header>
 
-        <h2>Realtime Meeting</h2>
+	<div class="container">
 
-        <!-- STEP 1 -->
-        <div id="menu">
-            <button class="create" onclick="showCreate()">
-                ➕ Create Room
-            </button>
+		<h2>Realtime Meeting</h2>
 
-            <button class="join" onclick="showJoin()">
-                🔗 Join Room
-            </button>
-        </div>
+		<!-- STEP 1 -->
+		<div id="menu">
+			<button class="create" onclick="showCreate()">
+				➕ Create Room
+			</button>
 
-        <!-- CREATE FORM -->
-        <div id="createBox" class="hidden">
-            <h3>Create Room</h3>
-            <input id="createUsername" placeholder="Your username">
-            <button class="create" onclick="createRoom()">Start Meeting</button>
-            <button onclick="goBack()">⬅ Back</button>
-        </div>
+			<button class="join" onclick="showJoin()">
+				🔗 Join Room
+			</button>
+		</div>
 
-        <!-- JOIN FORM -->
-        <div id="joinBox" class="hidden">
-            <h3>Join Room</h3>
-            <input id="joinUsername" placeholder="Your username">
-            <input id="roomInput" placeholder="Room id">
-            <button class="join" onclick="joinRoom()">Join</button>
-            <button onclick="goBack()">⬅ Back</button>
-        </div>
+		<!-- CREATE FORM -->
+		<div id="createBox" class="hidden">
+			<h3>Create Room</h3>
+			<input id="createUsername" placeholder="Your username">
+			<button class="create" onclick="createRoom()">Start Meeting</button>
+			<button onclick="goBack()">⬅ Back</button>
+		</div>
+
+		<!-- JOIN FORM -->
+		<div id="joinBox" class="hidden">
+			<h3>Join Room</h3>
+			<input id="joinUsername" placeholder="Your username">
+			<input id="roomInput" placeholder="Room id">
+			<button class="join" onclick="joinRoom()">Join</button>
+			<button onclick="goBack()">⬅ Back</button>
+		</div>
 
 
-    </div>
+	</div>
 
-    <script src="/static/js/index.js"></script>
+	<script src="/static/js/index.js"></script>
 </body>
 
 </html>
