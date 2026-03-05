@@ -48,7 +48,7 @@ func NewClient(room *Room, conn *websocket.Conn, user *User) *Client {
 		user: user,
 		room: room,
 		conn: conn,
-		send: make(chan []byte, 256),
+		send: make(chan []byte, 10),
 	}
 
 	room.join <- client
@@ -90,6 +90,7 @@ func (c *Client) readPump() {
 			continue
 		}
 
+		c.room.historyMessages = append(c.room.historyMessages, sendMsg)
 		c.room.broadcast <- data
 	}
 }

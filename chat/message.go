@@ -8,6 +8,7 @@ type Message struct {
 
 const (
 	TypeChat           = "chat"
+	TypeFetchMessage   = "fetch_messages"
 	TypeConnectUser    = "connect_user"
 	TypeDisconnectUser = "disconnect_user"
 )

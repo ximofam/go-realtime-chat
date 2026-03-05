@@ -8,6 +8,8 @@ import (
 type Room struct {
 	id string
 
+	historyMessages []Message
+
 	server *Server
 
 	clients map[*Client]struct{}
@@ -44,6 +46,22 @@ func (r *Room) run() {
 		select {
 		case client := <-r.join:
 			r.clients[client] = struct{}{}
+
+			go func() {
+				if len(r.historyMessages) == 0 {
+					return
+				}
+
+				data, err := json.Marshal(WSResponse{
+					Type: TypeFetchMessage,
+					Data: r.historyMessages,
+				})
+				if err != nil {
+					return
+				}
+
+				client.send <- data
+			}()
 
 			go func() {
 				response := WSResponse{
