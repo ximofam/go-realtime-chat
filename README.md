@@ -6,16 +6,3 @@ A simple realtime chat using Go, Websocket
 
 **Live Demo:** I've deployed it at [https://go-realtime-chat.onrender.com](https://go-realtime-chat.onrender.com). 
 > *Note: You need to wait a few minutes for the server to restart.*
-
-## How to run locally
-
-If you clone this repo, you need to type:
-
-```bash
-go mod tidy
-```
-and wait for it to find or download the dependencies, then just type:
-```bash
-go run .
-```
-Hope you enjoy it =)) 🎉
